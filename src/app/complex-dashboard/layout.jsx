@@ -1,7 +1,10 @@
 import React from 'react';
 
-const DashboardLayout = ({ children, notifications, revenue, users }) => {
-    return (
+const DashboardLayout = ({ children, notifications, revenue, users, login }) => {
+
+    const isLoggedIn = false;
+
+    return isLoggedIn ? (
         <div>
             <div>{children}</div>
             <div style={{ display: "flex" }}>
@@ -11,8 +14,10 @@ const DashboardLayout = ({ children, notifications, revenue, users }) => {
                 </div>
                 <div style={{ display: "flex", flex: 1 }}>{notifications}</div>
             </div>
-        </div>
-    );
+        </div>) :
+        (
+            login
+        );
 };
 
 export default DashboardLayout;
